@@ -67,21 +67,29 @@ public class proj1 {
         String nextAddkey =  d.get(lastAddKey).get(newnum);
           output+= " " + nextAddkey;
           lastAddKey = nextAddkey;
-            System.out.println(output);
+
 
         }
-
-            int newnum = r.nextInt(d.get(lastAddKey).size());
-            String nextAddkey =  d.get(lastAddKey).get(newnum);
-            output+= " " + nextAddkey;
+            String nextAddkey = "";
+        if (d.get(lastAddKey)== null){
+            nextAddkey = (String)starterKeys.get(r.nextInt(starterKeys.size()));
+            output += ". " + nextAddkey;
             lastAddKey = nextAddkey;
-            System.out.println(output);
+        }
+int bound = d.get(lastAddKey).size()-1;
 
+        if ((bound)<1){ nextAddkey =  d.get(lastAddKey).get(0); }
+        else { int newnum = r.nextInt(d.get(lastAddKey).size());
+             nextAddkey = d.get(lastAddKey).get(newnum);}
+            output += " " + nextAddkey;
+            lastAddKey = nextAddkey;
+        }
       //  String s = (String)keys[r.nextInt(keys.length)];
        // output+= " " +s;
+        System.out.println(output);
         }
        // System.out.println(output);
     }
 
 
-}
+
