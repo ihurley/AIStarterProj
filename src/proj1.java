@@ -15,39 +15,32 @@ public class proj1 {
         Scanner scanner = new Scanner(new File("trainingtext.txt"));
         Hashtable<String,ArrayList <String>> d = new Hashtable() ;
         //fill dictionary
-
+        ArrayList starterKeys = new ArrayList();
         while (scanner.hasNext()) {
-            StringTokenizer stringTokenizer = new StringTokenizer(scanner.nextLine());
+            String next = scanner.nextLine();
+            StringTokenizer stringTokenizer = new StringTokenizer(next, " ");
             String nextS = stringTokenizer.nextToken();
             for (int i = 0; i< stringTokenizer.countTokens()-1; i++){
                 String s = stringTokenizer.nextToken();
+                if ((nextS.charAt(nextS.length()-1) == '.' ||
+                        nextS.charAt(nextS.length()-1) == '!' ||
+                        nextS.charAt(nextS.length()-1) == '?' ||
+                        nextS.charAt(nextS.length()-1) == ';')
+                        && java.lang.Character.isUpperCase(s.charAt(0))){
+                    starterKeys.add(s);
                 if (!d.keySet().contains(nextS)){
                     ArrayList sval = new ArrayList();
                     sval.add(s);
+
                    d.put(nextS,sval);
                    nextS = s;
                 }
-                else {d.get(nextS).add(s);}
+                else {d.get(nextS).add(s);
+                    nextS = s;
+                }
             }
         }
        Object [] keys = d.keySet().toArray();
-       ArrayList starterKeys = new ArrayList();
-
-       for (int i =0; i< keys.length-1; i++){
-         String s = (String)keys[i];
-         String b = (String)keys[i+1];
-        if ((s.charAt(s.length()-1) == '.' ||
-                s.charAt(s.length()-1) == '!' ||
-                    s.charAt(s.length()-1) == '?' ||
-                        s.charAt(s.length()-1) == ';')
-                && java.lang.Character.isUpperCase(b.charAt(0))){
-            starterKeys.add(b);
-        }
-                {
-
-        }
-       }
-
 
         Random r = new Random();
         Scanner userScan = new Scanner(System.in);
@@ -89,7 +82,7 @@ int bound = d.get(lastAddKey).size()-1;
         System.out.println(output);
         }
        // System.out.println(output);
-    }
+    }}
 
 
 
