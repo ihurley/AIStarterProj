@@ -7,6 +7,8 @@ all files and their purpose/contents
     - this is the bulk of this project. It will sort through the given training text and produce sentences based on that style. It will "learn" to use similar punctation and vocabulary by storing and choosing from dictionaries of the training text. 
 - traningtext
     - currently containing an exerpt of moby dick, this text is the basis for proj1 to learn from. This text can be altered to change the style of the work one wishes for the program to produce. 
+    
+*    Here is a photo of a sucessful run 
     ![alt text](samplerun.png)
 
 
