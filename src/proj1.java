@@ -27,7 +27,7 @@ public class proj1 {
                         nextS.charAt(nextS.length()-1) == '?' ||
                         nextS.charAt(nextS.length()-1) == ';')
                         && java.lang.Character.isUpperCase(s.charAt(0))){
-                    starterKeys.add(s);
+                    starterKeys.add(s);}
                 if (!d.keySet().contains(nextS)){
                     ArrayList sval = new ArrayList();
                     sval.add(s);
@@ -82,7 +82,7 @@ int bound = d.get(lastAddKey).size()-1;
         System.out.println(output);
         }
        // System.out.println(output);
-    }}
+    }
 
 
 
